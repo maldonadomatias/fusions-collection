@@ -1,13 +1,52 @@
+html {
+  font-size: 16px; /*font size of the browser settings of the user. default value:16px*/
+}
+
+h1,
+h2 {
+  margin: 0px;
+}
+
+@media (max-width: 770px) {
+  html {
+    font-size: 14px;
+  }
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
+  background: var(--eerieBlack);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+:root {
+  --confirmationColor: var(--seaGreenCrayola);
+  --denialColor: var(--indianRed);
+  --neutralityColor: var(--cyanProcess);
+  --text-color: #e7e7e7;
+  --sub-text-color: #c3c3c3;
+  --glass-background: rgb(255 255 255 / 5%);
+  --ornament-color: #f1b8f4;
+  --hoverButton-background: rgb(255 255 255 / 10%);
+  --seaGreenCrayola: #00f5c0;
+  --mediumSpringGreen: #00e599;
+  --platinum: #e7e7e7;
+  --jet: #3c3c3c;
+  --battleshipGrey: #888888;
+  --eerieBlack: #262626;
+  --mountainMeadow: #9eeedd;
+  --silver: #c3c3c3;
+}
+
+a {
+  text-decoration: unset;
 }
