@@ -73,8 +73,8 @@ const FusionCollection = () => {
       const data = await getFusions(); // DESCOMENTAR PARA PROBAR: Llamo a la funcion getFusions para traer la informacion de los NFT
       // const data = await getEmptyArray(); // DESCOMENTAR PARA PROBAR: Llamo a la funcion getEmptyArray para traer la informacion VACIA de los NFT
       // const data = getFusionsWithError(); // DESCOMENTAR PARA PROBAR: Llamo a la funcion getFusionsWithError para traer la informacion con un ERROR de los NFT
-      setLoadingNfts(false); // Una vez cargados los NFT desactivo el Spinner
       setFusions(data);
+      setLoadingNfts(false); // Una vez cargados los NFT desactivo el Spinner
     } catch (error) {
       setError(true);
       setLoadingNfts(false); // Una vez cargados los NFT desactivo el Spinner
