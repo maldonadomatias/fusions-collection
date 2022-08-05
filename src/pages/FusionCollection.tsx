@@ -124,7 +124,7 @@ const FusionCollection = () => {
             justifyContent="center"
             spacing={2}
           >
-            {fusions &&
+            {fusions && !error &&
               fusions.map((item, key) => {
                 return (
                   <FusionCard
