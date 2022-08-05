@@ -50,13 +50,22 @@ const ModalFrame = styled.div`
   background-color: var(--eerieBlack);
   padding: 15px;
   overflow-x: scroll;
+`;
+
+const GridFrame = styled.div`
+  display: flex;
+  width: 100%;
   @media (min-width: 550px) {
+    width: 50%;
+    margin: 0;
   }
   @media (min-width: 840px) {
+    width: 25%;
+    margin: 0
   }
   @media (min-width: 1252px) {
-  }
-  @media (min-width: 1600px) {
+    width: 20%;
+    margin: 0
   }
 `;
 
@@ -124,16 +133,19 @@ const FusionCollection = () => {
             justifyContent="flex-start"
             spacing={2}
           >
-            {fusions && !error &&
+            {fusions &&
+              !error &&
               fusions.map((item, key) => {
                 return (
-                  <FusionCard
-                    key={key}
-                    urlImage={item.image}
-                    name={item.name}
-                    tokenId={item.id}
-                    onClickFusion={() => handleOpen(item)}
-                  />
+                  <GridFrame>
+                    <FusionCard
+                      key={key}
+                      urlImage={item.image}
+                      name={item.name}
+                      tokenId={item.id}
+                      onClickFusion={() => handleOpen(item)}
+                    />
+                  </GridFrame>
                 );
               })}
 
