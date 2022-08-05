@@ -5,7 +5,7 @@ import styled from "styled-components";
 import Modal from "@material-ui/core/Modal";
 import TitleAndDescription from "../components/views/TitleAndDescription";
 import FusionCard from "../components/views/Fusion";
-import { CircularProgress } from "@material-ui/core";
+import { CircularProgress, Grid, Typography } from "@material-ui/core";
 import { Fighter } from "../types/arenas";
 import {
   getEmptyArray,
@@ -15,6 +15,8 @@ import {
 
 const PAGE_TITLE = "Fusion Collection";
 const PAGE_DESCRIPTION = "The FUSION CRYPTONAUT NFTs in your Wallet";
+const FUSION_EMPTY = "NO FUSIONS ADD ON YOUR WALLET";
+const FUSION_ERROR = "ERROR FETCHING THE FUSIONS";
 
 const ContentFrame = styled.div`
   margin: 55px auto 40px auto;
@@ -44,11 +46,27 @@ const FusionCollection = () => {
   const [fusions, setFusions] = useState<Fighter[]>([]);
 
   const [loadingNfts, setLoadingNfts] = useState(true);
-
+  const [error, setError] = useState<boolean>(false);
   const [openModal, setOpenModal] = useState(false);
   const [fusionSelected, setFusionSelected] = useState<Fighter>();
 
-  const fetchFusions = () => {};
+  const fetchFusions = async () => {
+    try {
+      const data = await getFusions(); // DESCOMENTAR PARA PROBAR: Llamo a la funcion getFusions para traer la informacion de los NFT
+      // const data = await getEmptyArray(); // DESCOMENTAR PARA PROBAR: Llamo a la funcion getEmptyArray para traer la informacion VACIA de los NFT
+      // const data = getFusionsWithError(); // DESCOMENTAR PARA PROBAR: Llamo a la funcion getFusionsWithError para traer la informacion con un ERROR de los NFT
+      setLoadingNfts(false); // Una vez cargados los NFT desactivo el Spinner
+      setFusions(data);
+    } catch (error) {
+      setError(true);
+      setLoadingNfts(false); // Una vez cargados los NFT desactivo el Spinner
+    }
+  };
+
+  const handleOpen = (item: any) => {
+    setFusionSelected(item);
+    setOpenModal(true);
+  };
 
   const handleClose = () => {
     setOpenModal(false);
@@ -81,6 +99,37 @@ const FusionCollection = () => {
             />
           </div>
         )}
+        <div>
+          <Grid
+            container
+            alignItems="center"
+            justifyContent="center"
+            spacing={2}
+          >
+            {fusions &&
+              fusions.map((item, key) => {
+                return (
+                  <FusionCard
+                    key={key}
+                    urlImage={item.image}
+                    name={item.name}
+                    tokenId={item.id}
+                    onClickFusion={() => handleOpen(item)}
+                  />
+                );
+              })}
+
+            {/* SI FUSION ESTA VACIO */}
+            {!loadingNfts && !error && fusions.length == 0 && (
+              <MessageFrame>{FUSION_EMPTY}</MessageFrame>
+            )}
+
+            {/* SI FUSION TRAE ERROR AL "FETCHING" */}
+            {!loadingNfts && error && (
+              <MessageFrame>{FUSION_ERROR}</MessageFrame>
+            )}
+          </Grid>
+        </div>
       </ContentFrame>
 
       <Modal open={openModal} onClose={handleClose}>
@@ -96,7 +145,12 @@ const FusionCollection = () => {
         >
           {fusionSelected && (
             <>
-              <div>FUSION DATA</div>
+              <Typography>Name: {fusionSelected.name}</Typography>
+              <Typography>ID: {fusionSelected.id}</Typography>
+              <Typography>Image: {fusionSelected.image}</Typography>
+              <Typography>Battle Type: {fusionSelected.battleType}</Typography>
+              <Typography>Phase: {fusionSelected.phase}</Typography>
+              <Typography>Experience: {fusionSelected.experience}</Typography>
             </>
           )}
         </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import styled from "styled-components";
 
@@ -11,9 +11,21 @@ const CollectionItemFrame = styled.div`
   transition: border 0.3s ease;
   background-color: var(--glass-background);
   cursor: pointer;
-
   :hover {
     border: 2px solid var(--seaGreenCrayola);
+  }
+  margin: 10px;
+  @media (min-width: 550px) {
+    width: 40%;
+  }
+  @media (min-width: 840px) {
+    width: 27%;
+  }
+  @media (min-width: 1252px) {
+    width: 20%;
+  }
+  @media (min-width: 1600px) {
+    width: 18%;
   }
 `;
 

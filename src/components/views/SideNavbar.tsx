@@ -3,8 +3,11 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import clsx from "clsx";
 import { HiArrowNarrowLeft } from "react-icons/hi";
+import { FaMedium } from "react-icons/fa";
+import { BsDiscord, BsTelegram, BsTwitter } from "react-icons/bs";
 
 import { makeStyles } from "@material-ui/core/styles";
+import Link from "@material-ui/core/Link";
 import Drawer from "@material-ui/core/Drawer";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
@@ -314,6 +317,45 @@ const SideNavBar = ({
             style={{ color: "color: rgb(255 255 255 / 30%)" }}
             size={25}
           />
+        </div>
+        <div
+          style={{
+            display: "flex",
+            position: "relative",
+            justifyContent: "space-around",
+            top: "82%",
+            cursor: "pointer",
+            visibility:
+              sideNavBarStatus != SideNavBarStatus.OPENED
+                ? "hidden"
+                : "visible",
+          }}
+          onClick={() => setSideNavBarStatus(SideNavBarStatus.HIDDEN)}
+        >
+          <Link color="inherit" href="https://discord.com/">
+            <BsDiscord
+              style={{ color: "color: rgb(255 255 255 / 30%)" }}
+              size={25}
+            />
+          </Link>
+          <Link color="inherit" href="https://desktop.telegram.org/">
+            <BsTelegram
+              style={{ color: "color: rgb(255 255 255 / 30%)" }}
+              size={25}
+            />
+          </Link>
+          <Link color="inherit" href="https://twitter.com/">
+            <BsTwitter
+              style={{ color: "color: rgb(255 255 255 / 30%)" }}
+              size={25}
+            />
+          </Link>
+          <Link color="inherit" href="https://medium.com/">
+            <FaMedium
+              style={{ color: "color: rgb(255 255 255 / 30%)" }}
+              size={25}
+            />
+          </Link>
         </div>
       </div>
     </Drawer>
