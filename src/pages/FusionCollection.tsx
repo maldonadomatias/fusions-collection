@@ -5,7 +5,7 @@ import styled from "styled-components";
 import Modal from "@material-ui/core/Modal";
 import TitleAndDescription from "../components/views/TitleAndDescription";
 import FusionCard from "../components/views/Fusion";
-import { CircularProgress, Grid, Typography } from "@material-ui/core";
+import { Box, CircularProgress, Grid, Typography } from "@material-ui/core";
 import { Fighter } from "../types/arenas";
 import {
   getEmptyArray,
@@ -15,7 +15,7 @@ import {
 
 const PAGE_TITLE = "Fusion Collection";
 const PAGE_DESCRIPTION = "The FUSION CRYPTONAUT NFTs in your Wallet";
-const FUSION_EMPTY = "NO FUSIONS ADD ON YOUR WALLET";
+const FUSION_EMPTY = "NO FUSIONS FOUND ON YOUR WALLET";
 const FUSION_ERROR = "ERROR FETCHING THE FUSIONS";
 
 const ContentFrame = styled.div`
@@ -117,11 +117,11 @@ const FusionCollection = () => {
             />
           </div>
         )}
-        <div>
+        <Box>
           <Grid
             container
             alignItems="center"
-            justifyContent="center"
+            justifyContent="flex-start"
             spacing={2}
           >
             {fusions && !error &&
@@ -147,7 +147,7 @@ const FusionCollection = () => {
               <MessageFrame>{FUSION_ERROR}</MessageFrame>
             )}
           </Grid>
-        </div>
+        </Box>
       </ContentFrame>
 
       <Modal open={openModal} onClose={handleClose}>

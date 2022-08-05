@@ -322,7 +322,7 @@ const SideNavBar = ({
           style={{
             position: "absolute",
             bottom: "2%",
-            width: "calc(100% - 0px)"
+            width: "calc(100% - 0px)",
           }}
         >
           <div
@@ -336,25 +336,29 @@ const SideNavBar = ({
                   : "visible",
             }}
           >
-            <Link color="inherit" href="https://discord.com/">
+            <Link color="inherit" href="https://discord.com/" target="_blank">
               <BsDiscord
                 style={{ color: "color: rgb(255 255 255 / 30%)" }}
                 size={25}
               />
             </Link>
-            <Link color="inherit" href="https://desktop.telegram.org/">
+            <Link
+              color="inherit"
+              href="https://desktop.telegram.org/"
+              target="_blank"
+            >
               <BsTelegram
                 style={{ color: "color: rgb(255 255 255 / 30%)" }}
                 size={25}
               />
             </Link>
-            <Link color="inherit" href="https://twitter.com/">
+            <Link color="inherit" href="https://twitter.com/" target="_blank">
               <BsTwitter
                 style={{ color: "color: rgb(255 255 255 / 30%)" }}
                 size={25}
               />
             </Link>
-            <Link color="inherit" href="https://medium.com/">
+            <Link color="inherit" href="https://medium.com/" target="_blank">
               <FaMedium
                 style={{ color: "color: rgb(255 255 255 / 30%)" }}
                 size={25}
