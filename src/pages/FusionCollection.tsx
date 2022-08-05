@@ -42,6 +42,24 @@ const MessageFrame = styled.div`
   text-transform: uppercase;
 `;
 
+const ModalFrame = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: var(--platinum);
+  background-color: var(--eerieBlack);
+  padding: 15px;
+  overflow-x: scroll;
+  @media (min-width: 550px) {
+  }
+  @media (min-width: 840px) {
+  }
+  @media (min-width: 1252px) {
+  }
+  @media (min-width: 1600px) {
+  }
+`;
+
 const FusionCollection = () => {
   const [fusions, setFusions] = useState<Fighter[]>([]);
 
@@ -133,16 +151,7 @@ const FusionCollection = () => {
       </ContentFrame>
 
       <Modal open={openModal} onClose={handleClose}>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "20px",
-            color: "var(--platinum)",
-            backgroundColor: "var(--eerieBlack)",
-            padding: "15px",
-          }}
-        >
+        <ModalFrame>
           {fusionSelected && (
             <>
               <Typography>Name: {fusionSelected.name}</Typography>
@@ -153,7 +162,7 @@ const FusionCollection = () => {
               <Typography>Experience: {fusionSelected.experience}</Typography>
             </>
           )}
-        </div>
+        </ModalFrame>
       </Modal>
     </div>
   );

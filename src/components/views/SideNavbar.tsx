@@ -166,7 +166,7 @@ const SideNavBar = ({
     >
       <div
         style={{
-          height: "100%",
+          height: "80%",
           marginTop: NAV_BAR_HEIGHT,
           fontSize: "0.9375rem",
         }}
@@ -320,42 +320,47 @@ const SideNavBar = ({
         </div>
         <div
           style={{
-            display: "flex",
-            position: "relative",
-            justifyContent: "space-around",
-            top: "82%",
-            cursor: "pointer",
-            visibility:
-              sideNavBarStatus != SideNavBarStatus.OPENED
-                ? "hidden"
-                : "visible",
+            position: "absolute",
+            bottom: "2%",
+            width: "calc(100% - 0px)"
           }}
-          onClick={() => setSideNavBarStatus(SideNavBarStatus.HIDDEN)}
         >
-          <Link color="inherit" href="https://discord.com/">
-            <BsDiscord
-              style={{ color: "color: rgb(255 255 255 / 30%)" }}
-              size={25}
-            />
-          </Link>
-          <Link color="inherit" href="https://desktop.telegram.org/">
-            <BsTelegram
-              style={{ color: "color: rgb(255 255 255 / 30%)" }}
-              size={25}
-            />
-          </Link>
-          <Link color="inherit" href="https://twitter.com/">
-            <BsTwitter
-              style={{ color: "color: rgb(255 255 255 / 30%)" }}
-              size={25}
-            />
-          </Link>
-          <Link color="inherit" href="https://medium.com/">
-            <FaMedium
-              style={{ color: "color: rgb(255 255 255 / 30%)" }}
-              size={25}
-            />
-          </Link>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-around",
+              cursor: "pointer",
+              visibility:
+                sideNavBarStatus != SideNavBarStatus.OPENED
+                  ? "hidden"
+                  : "visible",
+            }}
+          >
+            <Link color="inherit" href="https://discord.com/">
+              <BsDiscord
+                style={{ color: "color: rgb(255 255 255 / 30%)" }}
+                size={25}
+              />
+            </Link>
+            <Link color="inherit" href="https://desktop.telegram.org/">
+              <BsTelegram
+                style={{ color: "color: rgb(255 255 255 / 30%)" }}
+                size={25}
+              />
+            </Link>
+            <Link color="inherit" href="https://twitter.com/">
+              <BsTwitter
+                style={{ color: "color: rgb(255 255 255 / 30%)" }}
+                size={25}
+              />
+            </Link>
+            <Link color="inherit" href="https://medium.com/">
+              <FaMedium
+                style={{ color: "color: rgb(255 255 255 / 30%)" }}
+                size={25}
+              />
+            </Link>
+          </div>
         </div>
       </div>
     </Drawer>
